@@ -6,8 +6,19 @@ from rest_framework import status
 from .models import categories
 from .serializers import categoriesSerializer
 
-class categorieslist(APIView):
-    def get(self, request):
-        categories1 = categories.objects.all()
-        serializer = categoriesSerializer(categories1, many=True)
-        return Response(serializer.data)
+
+# class categoriesList(APIView):
+#     def get(self, request, *args, **kwargs):
+#         categories1 = categories.objects.all()
+#         serializer = categoriesSerializer(categories1, many=True)
+#         return Response(serializer.data)
+
+from rest_framework import viewsets
+
+from .serializers import categoriesSerializer
+from .models import categories
+
+
+class categoriesViewSet(viewsets.ModelViewSet):
+    queryset = categories.objects.all()
+    serializer_class = categoriesSerializer
