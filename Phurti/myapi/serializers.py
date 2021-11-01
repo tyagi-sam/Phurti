@@ -1,3 +1,11 @@
 from rest_framework import serializers
+from .models import categories
 
-class
+class categoriesSerializer(serializers.ModelSerializer):
+    prod = serializers.SerializerMethodField()
+    class Meta:
+        model = categories
+        fields = '__all__'
+
+    def get_prod(self, obj):
+        return obj.prod.product_title
