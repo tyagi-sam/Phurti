@@ -5,7 +5,7 @@ class categories(models.Model):
     description =models.TextField()
 
     def __str__(self):
-        return self.title
+        return f"Category {self.title}"
 
 class product(models.Model):
     title = models.CharField(max_length=200)
@@ -14,4 +14,4 @@ class product(models.Model):
     category = models.ForeignKey(categories, default=1, on_delete=models.SET_DEFAULT)
 
     def __str__(self):
-        return self.title
+        return f"Product {self.title}"

@@ -1,12 +1,16 @@
 from rest_framework import serializers
-from .models import categories
+from .models import categories, product
+
 
 class categoriesSerializer(serializers.HyperlinkedModelSerializer):
-    # prod = serializers.SerializerMethodField()
 
     class Meta:
         model = categories
         fields = '__all__'
 
-    # def get_prod(self, obj):
-    #     return obj.prod.title
+
+class productSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = product
+        fields = '__all__'

@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import categories
-from .serializers import categoriesSerializer
-
+from .models import categories, product
+from .serializers import categoriesSerializer, productSerializer
+from rest_framework import viewsets
 
 # class categoriesList(APIView):
 #     def get(self, request, *args, **kwargs):
@@ -13,12 +13,13 @@ from .serializers import categoriesSerializer
 #         serializer = categoriesSerializer(categories1, many=True)
 #         return Response(serializer.data)
 
-from rest_framework import viewsets
-
-from .serializers import categoriesSerializer
-from .models import categories
-
 
 class categoriesViewSet(viewsets.ModelViewSet):
     queryset = categories.objects.all()
     serializer_class = categoriesSerializer
+
+
+class productViewSet(viewsets.ModelViewSet):
+    queryset = product.objects.all()
+    serializer_class = productSerializer
+
