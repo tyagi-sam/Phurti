@@ -10,7 +10,12 @@ class categoriesSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class productSerializer(serializers.HyperlinkedModelSerializer):
+    category = serializers.SerializerMethodField()
 
     class Meta:
         model = product
         fields = '__all__'
+
+    def get_category(self, obj):
+        return obj.category.title
+

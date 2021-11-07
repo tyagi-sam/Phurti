@@ -1,11 +1,13 @@
 from django.db import models
 
+
 class categories(models.Model):
     title = models.CharField(max_length=200)
-    description =models.TextField()
+    description = models.TextField()
 
     def __str__(self):
         return f"Category {self.title}"
+
 
 class product(models.Model):
     title = models.CharField(max_length=200)

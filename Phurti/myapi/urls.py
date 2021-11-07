@@ -12,12 +12,3 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api/', include('rest_framework.urls', namespace='rest_framework'))
 ]
-
-
-# from django.urls import path
-# from . import views
-#
-# urlpatterns = [
-#     path('', views.categoriesList.as_view(), name='categorylist')
-#
-# ]
